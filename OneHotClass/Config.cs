@@ -12,7 +12,7 @@ namespace OneHotClass
 
 		//계정
 		public static string LOGIN_EMAIL = "comicolon@naver.com";
-		public static string PASSWORD = "n3fvr#aln*";
+		public static string PASSWORD = "";
 		public static int MAIL_SERVER = 0;
 
 		//필드값
@@ -22,5 +22,7 @@ namespace OneHotClass
 		public static string ALAM_WORD2 = "";
 		public static string ALAM_WORD3 = "";
 		public static string ALAM_WORD4 = "";
+
+		public static string PYTHON_PATH = @"C:\Users\comic\AppData\Local\Programs\Python\Python39\python.exe";
 	}
 }

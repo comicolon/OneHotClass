@@ -13,11 +13,13 @@ namespace OneHotClass
 		{
 			// 1) Create Process Info
 			var psi = new ProcessStartInfo();
-			psi.FileName = @"C:\Users\comic\AppData\Local\Programs\Python\Python39\python.exe";
+			//psi.FileName = @"C:\Users\comic\AppData\Local\Programs\Python\Python39\python.exe";
+			psi.FileName = @mainForm.textBox_pythonPath.Text;
+			//Console.WriteLine(psi.FileName);
 
 			// 2) Provide script and arguments
 			string currentPath = Environment.CurrentDirectory;
-			Console.WriteLine(currentPath);
+			//Console.WriteLine(currentPath);
 			var script = currentPath + @"\login.py";
 
 			psi.Arguments = $"\"{script}\" \"{email}\" \"{password}\"";

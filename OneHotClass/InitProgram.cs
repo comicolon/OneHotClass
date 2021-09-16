@@ -42,7 +42,9 @@ namespace OneHotClass
 				mainForm.textBox_searchWord4.Text = Config.ALAM_WORD_LIST[3];
 			}
 
-			
+			//파이썬 경로 세팅
+			mainForm.textBox_pythonPath.Text = Config.PYTHON_PATH; 
+
 
 		}
 

@@ -48,6 +48,8 @@ namespace OneHotClass
 			this.textBox_searchWord2 = new System.Windows.Forms.TextBox();
 			this.textBox_searchWord3 = new System.Windows.Forms.TextBox();
 			this.textBox_searchWord4 = new System.Windows.Forms.TextBox();
+			this.textBox_pythonPath = new System.Windows.Forms.TextBox();
+			this.label_python = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -222,11 +224,29 @@ namespace OneHotClass
 			this.textBox_searchWord4.Size = new System.Drawing.Size(139, 21);
 			this.textBox_searchWord4.TabIndex = 17;
 			// 
+			// textBox_pythonPath
+			// 
+			this.textBox_pythonPath.Location = new System.Drawing.Point(101, 417);
+			this.textBox_pythonPath.Name = "textBox_pythonPath";
+			this.textBox_pythonPath.Size = new System.Drawing.Size(408, 21);
+			this.textBox_pythonPath.TabIndex = 18;
+			// 
+			// label_python
+			// 
+			this.label_python.AutoSize = true;
+			this.label_python.Location = new System.Drawing.Point(12, 420);
+			this.label_python.Name = "label_python";
+			this.label_python.Size = new System.Drawing.Size(69, 12);
+			this.label_python.TabIndex = 19;
+			this.label_python.Text = "파이썬 경로";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.label_python);
+			this.Controls.Add(this.textBox_pythonPath);
 			this.Controls.Add(this.textBox_searchWord4);
 			this.Controls.Add(this.textBox_searchWord3);
 			this.Controls.Add(this.textBox_searchWord2);
@@ -273,6 +293,8 @@ namespace OneHotClass
 		internal System.Windows.Forms.TextBox textBox_searchWord2;
 		internal System.Windows.Forms.TextBox textBox_searchWord3;
 		internal System.Windows.Forms.TextBox textBox_searchWord4;
+		internal System.Windows.Forms.TextBox textBox_pythonPath;
+		private System.Windows.Forms.Label label_python;
 	}
 }
 
