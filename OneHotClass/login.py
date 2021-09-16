@@ -1,5 +1,8 @@
 import email
 import imaplib
+import pandas as pd
+import time
+from datetime import datetime
 import os, sys
 import configparser
 # from bs4 import BeautifulSoup as bs
@@ -9,8 +12,8 @@ import webbrowser
 ################################# 변수 받는 부분
 loginEmail = sys.argv[1]
 password = sys.argv[2]
-# loginEmail = 'digfjdf@naver.com'
-# password = 'eofkv'
+# loginEmail = 'dfdfdaf@naver.com'
+# password = 'hfhjbnf'
 # second_pw = 'sdsdsdfdga'
 
 
@@ -63,6 +66,39 @@ def find_encoding_info(txt):
     s, encoding = info[0]
     return s, encoding
 
+#메일 안의 날짜와 시간을 변환해주는 함수
+def convert_date(txt):
+    #string형식 날짜 Timestamp 형식으로 변경 후 문자열로 변경
+    date = str(pd.Timestamp(txt))
+    #년, 월, 일 분리
+    day = date.split(' ')[0]
+    #시, 분, 초 분리
+    hour = date.split(' ')[1]
+    #+00:00(시차표시) 분리
+    hour = hour.split('+')[0]
+
+    #list와 변수 생성
+    list_for_date = []
+    temp = 0
+    #년, 월, 일을 정수로 변경하여 리스트에 삽입
+    for day_split in day.split('-'):
+        temp = int(day_split)
+        list_for_date.append(temp)
+    #시, 분, 초를 정수로 변경하여 리스트에 삽입
+    for hour_split in hour.split(':'):
+        temp = int(hour_split)
+        list_for_date.append(temp)
+    #datetime 형식으로 변경을 위해서는 정수형으로 datetime 함수 사용(UTC+9시간을 위해 시간에 9를 넣음)
+    date = datetime(list_for_date[0], list_for_date[1], list_for_date[2], list_for_date[3]+9, list_for_date[4],
+                    list_for_date[5])
+
+    #시간 차 계산(split을 위해 str변환)
+    diff = str(datetime.now() - date).split(':')[1]
+    #분의 자리에서 3보다 같거나 크면 0반환, 아니면 1반환(대소비교를 위해 int변환)
+    if int(diff) >=3:
+        return 0
+    else:
+        return 1
 
 class Main():
     def __init__(self):
@@ -95,6 +131,9 @@ class Main():
             sender, encoder = find_encoding_info(email_message['From'])
             subject, encode = find_encoding_info(email_message['Subject'])
 
+            #이메일 받은 시간
+            Email_recieve_date = email_message['Date']
+
             #encode가 None타입의 경우
             if encode == None :
                 continue
@@ -103,10 +142,16 @@ class Main():
             if str(subject, encode) != "[코드스테이츠] 본인 인증 진행 안내":
                 continue
             else:
+                # 메일이 가기까지 시간 5초 기다림
+                time.sleep(5)
+
+                # 3분 이내의 메일이 없을 경우 종료
+                if convert_date(email_message['Date']) == 0:
+                    print('3분 이내의 메일이 없습니다.')
+                    break
 
                 #본문 내용 확인
                 if email_message.is_multipart():
-
                     for part in email_message.get_payload():
                         if part.get_content_type() == 'text/plain':
                             bytes = part.get_payload(decode=True)
