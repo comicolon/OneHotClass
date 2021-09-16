@@ -13,6 +13,7 @@ namespace OneHotClass
 		public static Config config = new Config();
 		public static Functions functions = new Functions();
 
+		public static InitProgram initProgram = new InitProgram();
 		public static FormEventManager formEventManager = new FormEventManager(); //폼 이벤트
 	}
 }

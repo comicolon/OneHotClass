@@ -8,6 +8,7 @@ namespace OneHotClass
 {
 	public class Functions : InstanceManager
 	{
+		//로그인 처리
 		public void Login (string email, string password)
 		{
 			// 1) Create Process Info
@@ -76,6 +77,8 @@ namespace OneHotClass
 				}
 			}
 
+			
+
 			Console.WriteLine(linkInEmail);
 			OpenCodeStates(2, linkInEmail);
 		}
@@ -97,6 +100,11 @@ namespace OneHotClass
 			{
 				System.Diagnostics.Process.Start(link);
 			}
+		}
+
+		internal void GetSchedule()
+		{
+			GoogleCalenda.getSchedule();
 		}
 	}
 }
