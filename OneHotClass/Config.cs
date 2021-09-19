@@ -11,8 +11,8 @@ namespace OneHotClass
 		public static string VERSION = "0.1.16";     // 버전
 
 		//계정
-		public static string LOGIN_EMAIL = "comicolon@naver.com";
-		public static string PASSWORD = "n3fvr#aln*";
+		public static string LOGIN_EMAIL = "";
+		public static string PASSWORD = "";
 		public static int PRE_LOGIN_MAIL_SERVER = 2;					// 1. 카아오 2.구글
 
 		//필드값
