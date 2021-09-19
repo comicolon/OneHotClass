@@ -13,10 +13,10 @@ namespace OneHotClass
 		{
 			mainForm.button_codestates.Click += Button_Click;
 			mainForm.button_login.Click += Button_Click;
+			mainForm.button_2ndLogin.Click += Button_Click;
 			mainForm.button_logout.Click += Button_Click;
-			mainForm.button_google.Click += Button_Click;
-			mainForm.button_naver.Click += Button_Click;
 			mainForm.button_getSchedule.Click += Button_Click;
+			mainForm.button_zoomLink.Click += Button_Click;
 
 		}
 
@@ -24,18 +24,24 @@ namespace OneHotClass
 		{
 			if (sender.Equals(mainForm.button_login))
 			{
+				functions.PreLogin();
+			}
+			if (sender.Equals(mainForm.button_2ndLogin))
+			{
 				functions.Login(mainForm.textBox_email.Text, mainForm.textBox_password.Text);
 			}
 			if (sender.Equals(mainForm.button_codestates))
 			{
 				functions.OpenCodeStates(1);
 			}
-
 			if (sender.Equals(mainForm.button_getSchedule))
 			{
 				functions.GetSchedule();
 			}
-
+			if (sender.Equals(mainForm.button_zoomLink))
+			{
+				functions.OpenZoom();
+			}
 
 		}
 	}

@@ -79,16 +79,18 @@ namespace OneHotClass
 				}
 			}
 
-			
-
-			Console.WriteLine(linkInEmail);
-			OpenCodeStates(2, linkInEmail);
+			OpenCodeStates(3, linkInEmail);
 		}
 
 		//암호화된 utf-8 형식을 복호화 해준다
 		public static string UnescapeHex(string data)
 		{
 			return Encoding.UTF8.GetString(Array.ConvertAll(Regex.Unescape(data).ToCharArray(), c => (byte)c));
+		}
+
+		internal void PreLogin()
+		{
+			OpenCodeStates(2);
 		}
 
 		// 코드 스페이츠 홈페이지 열기 1스탭은 처음 로그인 2스탭은 이메일 링크
@@ -98,7 +100,11 @@ namespace OneHotClass
 			{
 				System.Diagnostics.Process.Start("https://urclass.codestates.com/login");
 			}
-			else if (step == 2 && link != "")
+			else if (step == 2 && link == "")
+			{
+				System.Diagnostics.Process.Start("https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&scope=profile%20email&redirect_uri=https%3A%2F%2Furclass.codestates.com%2Fauth%3Fsocial_provider%3Dgoogle&propmt=consent&client_id=430860350629-p0iei83mun2uhg4ma0be52qbv8p97k8e.apps.googleusercontent.com&flowName=GeneralOAuthFlow");
+			}
+			else if (step == 3 && link != "")
 			{
 				System.Diagnostics.Process.Start(link);
 			}
@@ -107,6 +113,19 @@ namespace OneHotClass
 		internal void GetSchedule()
 		{
 			GoogleCalenda.getSchedule();
+		}
+
+		// 줌 링크를 열어준다.
+		internal void OpenZoom()
+		{
+			if (GoogleCalenda.zoomLink != null)
+			{
+				System.Diagnostics.Process.Start(GoogleCalenda.zoomLink);
+			}
+			else
+			{
+				MessageBox.Show("일정표를 먼저 불러오세요.");
+			}
 		}
 	}
 }

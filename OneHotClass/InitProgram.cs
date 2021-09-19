@@ -10,6 +10,12 @@ namespace OneHotClass
 	{
 		public InitProgram()
 		{
+			//프로그램 버전 정보
+			if(Config.VERSION != null)
+			{
+				mainForm.Text += "  " + Config.VERSION;
+			}
+
 			//이메일 세팅
 			if(Config.LOGIN_EMAIL != null)
 			{

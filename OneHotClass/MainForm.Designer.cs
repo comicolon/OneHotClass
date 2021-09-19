@@ -35,8 +35,6 @@ namespace OneHotClass
 			this.textBox_password = new System.Windows.Forms.TextBox();
 			this.button_login = new System.Windows.Forms.Button();
 			this.button_logout = new System.Windows.Forms.Button();
-			this.button_google = new System.Windows.Forms.Button();
-			this.button_naver = new System.Windows.Forms.Button();
 			this.button_codestates = new System.Windows.Forms.Button();
 			this.dataGridView_timeTable = new System.Windows.Forms.DataGridView();
 			this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +48,15 @@ namespace OneHotClass
 			this.textBox_searchWord4 = new System.Windows.Forms.TextBox();
 			this.textBox_pythonPath = new System.Windows.Forms.TextBox();
 			this.label_python = new System.Windows.Forms.Label();
+			this.button_zoomLink = new System.Windows.Forms.Button();
+			this.button_2ndLogin = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label_email
 			// 
 			this.label_email.AutoSize = true;
-			this.label_email.Location = new System.Drawing.Point(26, 108);
+			this.label_email.Location = new System.Drawing.Point(26, 172);
 			this.label_email.Name = "label_email";
 			this.label_email.Size = new System.Drawing.Size(69, 12);
 			this.label_email.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace OneHotClass
 			// label_password
 			// 
 			this.label_password.AutoSize = true;
-			this.label_password.Location = new System.Drawing.Point(26, 143);
+			this.label_password.Location = new System.Drawing.Point(26, 199);
 			this.label_password.Name = "label_password";
 			this.label_password.Size = new System.Drawing.Size(53, 12);
 			this.label_password.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace OneHotClass
 			// 
 			// textBox_email
 			// 
-			this.textBox_email.Location = new System.Drawing.Point(101, 105);
+			this.textBox_email.Location = new System.Drawing.Point(101, 169);
 			this.textBox_email.Name = "textBox_email";
 			this.textBox_email.Size = new System.Drawing.Size(151, 21);
 			this.textBox_email.TabIndex = 2;
@@ -83,7 +83,7 @@ namespace OneHotClass
 			// 
 			// textBox_password
 			// 
-			this.textBox_password.Location = new System.Drawing.Point(101, 140);
+			this.textBox_password.Location = new System.Drawing.Point(101, 196);
 			this.textBox_password.Name = "textBox_password";
 			this.textBox_password.Size = new System.Drawing.Size(151, 21);
 			this.textBox_password.TabIndex = 3;
@@ -92,43 +92,23 @@ namespace OneHotClass
 			// 
 			// button_login
 			// 
-			this.button_login.Location = new System.Drawing.Point(269, 105);
+			this.button_login.Location = new System.Drawing.Point(28, 97);
 			this.button_login.Name = "button_login";
 			this.button_login.Size = new System.Drawing.Size(75, 54);
 			this.button_login.TabIndex = 4;
-			this.button_login.Text = "로그인";
+			this.button_login.Text = "1차로그인";
 			this.button_login.UseVisualStyleBackColor = true;
 			this.button_login.UseWaitCursor = true;
 			// 
 			// button_logout
 			// 
-			this.button_logout.Location = new System.Drawing.Point(350, 105);
+			this.button_logout.Location = new System.Drawing.Point(190, 97);
 			this.button_logout.Name = "button_logout";
 			this.button_logout.Size = new System.Drawing.Size(63, 54);
 			this.button_logout.TabIndex = 5;
 			this.button_logout.Text = "로그아웃";
 			this.button_logout.UseVisualStyleBackColor = true;
 			this.button_logout.UseWaitCursor = true;
-			// 
-			// button_google
-			// 
-			this.button_google.Location = new System.Drawing.Point(101, 176);
-			this.button_google.Name = "button_google";
-			this.button_google.Size = new System.Drawing.Size(75, 23);
-			this.button_google.TabIndex = 6;
-			this.button_google.Text = "구글";
-			this.button_google.UseVisualStyleBackColor = true;
-			this.button_google.UseWaitCursor = true;
-			// 
-			// button_naver
-			// 
-			this.button_naver.Location = new System.Drawing.Point(182, 176);
-			this.button_naver.Name = "button_naver";
-			this.button_naver.Size = new System.Drawing.Size(75, 23);
-			this.button_naver.TabIndex = 7;
-			this.button_naver.Text = "네이버";
-			this.button_naver.UseVisualStyleBackColor = true;
-			this.button_naver.UseWaitCursor = true;
 			// 
 			// button_codestates
 			// 
@@ -146,13 +126,13 @@ namespace OneHotClass
 			this.dataGridView_timeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.time,
             this.일정내용});
-			this.dataGridView_timeTable.Location = new System.Drawing.Point(440, 59);
+			this.dataGridView_timeTable.Location = new System.Drawing.Point(347, 59);
 			this.dataGridView_timeTable.Name = "dataGridView_timeTable";
 			this.dataGridView_timeTable.ReadOnly = true;
 			this.dataGridView_timeTable.RowHeadersVisible = false;
 			this.dataGridView_timeTable.RowTemplate.Height = 23;
 			this.dataGridView_timeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView_timeTable.Size = new System.Drawing.Size(348, 176);
+			this.dataGridView_timeTable.Size = new System.Drawing.Size(441, 176);
 			this.dataGridView_timeTable.TabIndex = 10;
 			this.dataGridView_timeTable.UseWaitCursor = true;
 			// 
@@ -162,6 +142,7 @@ namespace OneHotClass
 			this.time.HeaderText = "시간";
 			this.time.Name = "time";
 			this.time.ReadOnly = true;
+			this.time.Width = 200;
 			// 
 			// 일정내용
 			// 
@@ -190,7 +171,7 @@ namespace OneHotClass
 			// label_alamSearchWord
 			// 
 			this.label_alamSearchWord.AutoSize = true;
-			this.label_alamSearchWord.Location = new System.Drawing.Point(440, 242);
+			this.label_alamSearchWord.Location = new System.Drawing.Point(580, 243);
 			this.label_alamSearchWord.Name = "label_alamSearchWord";
 			this.label_alamSearchWord.Size = new System.Drawing.Size(69, 12);
 			this.label_alamSearchWord.TabIndex = 13;
@@ -198,30 +179,30 @@ namespace OneHotClass
 			// 
 			// textBox_searchWord1
 			// 
-			this.textBox_searchWord1.Location = new System.Drawing.Point(440, 258);
+			this.textBox_searchWord1.Location = new System.Drawing.Point(582, 258);
 			this.textBox_searchWord1.Name = "textBox_searchWord1";
-			this.textBox_searchWord1.Size = new System.Drawing.Size(139, 21);
+			this.textBox_searchWord1.Size = new System.Drawing.Size(100, 21);
 			this.textBox_searchWord1.TabIndex = 14;
 			// 
 			// textBox_searchWord2
 			// 
-			this.textBox_searchWord2.Location = new System.Drawing.Point(585, 258);
+			this.textBox_searchWord2.Location = new System.Drawing.Point(688, 258);
 			this.textBox_searchWord2.Name = "textBox_searchWord2";
-			this.textBox_searchWord2.Size = new System.Drawing.Size(139, 21);
+			this.textBox_searchWord2.Size = new System.Drawing.Size(100, 21);
 			this.textBox_searchWord2.TabIndex = 15;
 			// 
 			// textBox_searchWord3
 			// 
-			this.textBox_searchWord3.Location = new System.Drawing.Point(440, 285);
+			this.textBox_searchWord3.Location = new System.Drawing.Point(582, 285);
 			this.textBox_searchWord3.Name = "textBox_searchWord3";
-			this.textBox_searchWord3.Size = new System.Drawing.Size(139, 21);
+			this.textBox_searchWord3.Size = new System.Drawing.Size(100, 21);
 			this.textBox_searchWord3.TabIndex = 16;
 			// 
 			// textBox_searchWord4
 			// 
-			this.textBox_searchWord4.Location = new System.Drawing.Point(585, 285);
+			this.textBox_searchWord4.Location = new System.Drawing.Point(688, 285);
 			this.textBox_searchWord4.Name = "textBox_searchWord4";
-			this.textBox_searchWord4.Size = new System.Drawing.Size(139, 21);
+			this.textBox_searchWord4.Size = new System.Drawing.Size(100, 21);
 			this.textBox_searchWord4.TabIndex = 17;
 			// 
 			// textBox_pythonPath
@@ -240,11 +221,32 @@ namespace OneHotClass
 			this.label_python.TabIndex = 19;
 			this.label_python.Text = "파이썬 경로";
 			// 
+			// button_zoomLink
+			// 
+			this.button_zoomLink.Location = new System.Drawing.Point(347, 256);
+			this.button_zoomLink.Name = "button_zoomLink";
+			this.button_zoomLink.Size = new System.Drawing.Size(96, 50);
+			this.button_zoomLink.TabIndex = 20;
+			this.button_zoomLink.Text = "Zoom 링크";
+			this.button_zoomLink.UseVisualStyleBackColor = true;
+			// 
+			// button_2ndLogin
+			// 
+			this.button_2ndLogin.Location = new System.Drawing.Point(109, 97);
+			this.button_2ndLogin.Name = "button_2ndLogin";
+			this.button_2ndLogin.Size = new System.Drawing.Size(75, 54);
+			this.button_2ndLogin.TabIndex = 21;
+			this.button_2ndLogin.Text = "2차로그인";
+			this.button_2ndLogin.UseVisualStyleBackColor = true;
+			this.button_2ndLogin.UseWaitCursor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.button_2ndLogin);
+			this.Controls.Add(this.button_zoomLink);
 			this.Controls.Add(this.label_python);
 			this.Controls.Add(this.textBox_pythonPath);
 			this.Controls.Add(this.textBox_searchWord4);
@@ -256,8 +258,6 @@ namespace OneHotClass
 			this.Controls.Add(this.button_getSchedule);
 			this.Controls.Add(this.dataGridView_timeTable);
 			this.Controls.Add(this.button_codestates);
-			this.Controls.Add(this.button_naver);
-			this.Controls.Add(this.button_google);
 			this.Controls.Add(this.button_logout);
 			this.Controls.Add(this.button_login);
 			this.Controls.Add(this.textBox_password);
@@ -280,12 +280,8 @@ namespace OneHotClass
 		internal System.Windows.Forms.TextBox textBox_email;
 		internal System.Windows.Forms.TextBox textBox_password;
 		internal System.Windows.Forms.Button button_logout;
-		internal System.Windows.Forms.Button button_google;
-		internal System.Windows.Forms.Button button_naver;
 		internal System.Windows.Forms.Button button_codestates;
 		internal System.Windows.Forms.DataGridView dataGridView_timeTable;
-		private System.Windows.Forms.DataGridViewTextBoxColumn time;
-		private System.Windows.Forms.DataGridViewTextBoxColumn 일정내용;
 		internal System.Windows.Forms.Button button_getSchedule;
 		internal System.Windows.Forms.TextBox textBox_calendarWord;
 		private System.Windows.Forms.Label label_alamSearchWord;
@@ -295,6 +291,10 @@ namespace OneHotClass
 		internal System.Windows.Forms.TextBox textBox_searchWord4;
 		internal System.Windows.Forms.TextBox textBox_pythonPath;
 		private System.Windows.Forms.Label label_python;
+		private System.Windows.Forms.DataGridViewTextBoxColumn time;
+		private System.Windows.Forms.DataGridViewTextBoxColumn 일정내용;
+		internal System.Windows.Forms.Button button_zoomLink;
+		internal System.Windows.Forms.Button button_2ndLogin;
 	}
 }
 

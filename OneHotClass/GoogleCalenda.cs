@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OneHotClass
 {
@@ -21,6 +22,7 @@ namespace OneHotClass
         static string ApplicationName = "Google Calendar API .NET Quickstart";
         static CalendarService service;
         static CalendarListEntry entry;
+        public static string zoomLink;
 
         public static void getSchedule()
         {
@@ -138,25 +140,73 @@ namespace OneHotClass
             //    Console.WriteLine("Summary: " + calendarEvent.Summary);
             //}
 
+            //일정표 갱신시 먼저 있던것을 클리어 해준다.
+            mainForm.dataGridView_timeTable.Rows.Clear();
+
             Events events = request.Execute();
-            Console.WriteLine("Upcoming events:");
             if (events.Items != null && events.Items.Count > 0)
             {
+
+                bool zoomFlagOne = false;
                 foreach (var eventItem in events.Items)
                 {
-
-
                     string when = eventItem.Start.DateTime.ToString();
                     if (String.IsNullOrEmpty(when))
                     {
                         when = eventItem.Start.Date;
                     }
-                    Console.WriteLine("{0} ({1})", eventItem.Summary, when);
+                    //Console.WriteLine("{0} ({1})", eventItem.Summary, when);
+
+                    Console.WriteLine(eventItem.Summary);
+                    //Console.WriteLine(eventItem.Id);
+                    //Console.WriteLine(eventItem.Status);
+                    //Console.WriteLine(eventItem.Attachments);
+                    //Console.WriteLine(eventItem.RecurringEventId);
+                    //Console.WriteLine(eventItem.Attendees);
+                    //Console.WriteLine(eventItem.AttendeesOmitted);
+                    //Console.WriteLine(eventItem.ConferenceData);
+                    //Console.WriteLine(eventItem.Created);
+                    Console.WriteLine(eventItem.Description); // 줌링크 링크용
+                    //Console.WriteLine(eventItem.ExtendedProperties);
+                    //Console.WriteLine(eventItem.HangoutLink);
+                    //Console.WriteLine(eventItem.HtmlLink);
+                    //Console.WriteLine(eventItem.ICalUID);
+                    //Console.WriteLine("===============================");
+
+                    
+                    if (eventItem.Description != null)
+					{
+                        string itemDesc = eventItem.Description.ToString();
+                        string index = "https://";
+                        int indexValue = itemDesc.IndexOf(index);
+                        bool zoomFlag = false;
+                        
+						for (int i = indexValue; i < itemDesc.Length; i++)
+						{
+                            string ch = itemDesc[i].ToString();
+                            if (ch == "\"" && zoomFlagOne == false)
+							{
+								zoomFlag = false;
+                                zoomFlagOne = true;
+								break;
+							}
+                            else if (zoomFlagOne == false)
+							{
+                                zoomLink += itemDesc[i];
+                                zoomFlag = true;
+							}
+						}
+                        Console.WriteLine("zoomLink = " + zoomLink);
+					}
+
+                    //화면에 나타냄
+                    mainForm.dataGridView_timeTable.Rows.Add(when, eventItem.Summary);
                 }
             }
             else
             {
                 Console.WriteLine("No upcoming events found.");
+                MessageBox.Show("예정된 일정이 없습니다.");
             }
         }
     }
