@@ -13,7 +13,7 @@ namespace OneHotClass
 		//계정
 		public static string LOGIN_EMAIL = "";
 		public static string PASSWORD = "";
-		public static int PRE_LOGIN_MAIL_SERVER = 2;					// 1. 카아오 2.구글
+		public static int PRE_LOGIN_MAIL_SERVER = 2;					// 1. 카카오 2.구글
 
 		//필드값
 		public static string CALENDAR_WORD = "부트캠프";				// 달력 중에서 검색어

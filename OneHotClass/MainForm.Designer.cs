@@ -34,7 +34,6 @@ namespace OneHotClass
 			this.textBox_email = new System.Windows.Forms.TextBox();
 			this.textBox_password = new System.Windows.Forms.TextBox();
 			this.button_login = new System.Windows.Forms.Button();
-			this.button_logout = new System.Windows.Forms.Button();
 			this.button_codestates = new System.Windows.Forms.Button();
 			this.dataGridView_timeTable = new System.Windows.Forms.DataGridView();
 			this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +49,17 @@ namespace OneHotClass
 			this.label_python = new System.Windows.Forms.Label();
 			this.button_zoomLink = new System.Windows.Forms.Button();
 			this.button_2ndLogin = new System.Windows.Forms.Button();
+			this.checkBox_chainLogin = new System.Windows.Forms.CheckBox();
+			this.button_preLoginKakao = new System.Windows.Forms.Button();
+			this.button_preLoginGoogle = new System.Windows.Forms.Button();
+			this.button_logout = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label_email
 			// 
 			this.label_email.AutoSize = true;
-			this.label_email.Location = new System.Drawing.Point(26, 172);
+			this.label_email.Location = new System.Drawing.Point(26, 216);
 			this.label_email.Name = "label_email";
 			this.label_email.Size = new System.Drawing.Size(69, 12);
 			this.label_email.TabIndex = 0;
@@ -66,7 +69,7 @@ namespace OneHotClass
 			// label_password
 			// 
 			this.label_password.AutoSize = true;
-			this.label_password.Location = new System.Drawing.Point(26, 199);
+			this.label_password.Location = new System.Drawing.Point(26, 243);
 			this.label_password.Name = "label_password";
 			this.label_password.Size = new System.Drawing.Size(53, 12);
 			this.label_password.TabIndex = 1;
@@ -75,7 +78,7 @@ namespace OneHotClass
 			// 
 			// textBox_email
 			// 
-			this.textBox_email.Location = new System.Drawing.Point(101, 169);
+			this.textBox_email.Location = new System.Drawing.Point(101, 213);
 			this.textBox_email.Name = "textBox_email";
 			this.textBox_email.Size = new System.Drawing.Size(151, 21);
 			this.textBox_email.TabIndex = 2;
@@ -83,7 +86,7 @@ namespace OneHotClass
 			// 
 			// textBox_password
 			// 
-			this.textBox_password.Location = new System.Drawing.Point(101, 196);
+			this.textBox_password.Location = new System.Drawing.Point(101, 240);
 			this.textBox_password.Name = "textBox_password";
 			this.textBox_password.Size = new System.Drawing.Size(151, 21);
 			this.textBox_password.TabIndex = 3;
@@ -99,16 +102,6 @@ namespace OneHotClass
 			this.button_login.Text = "1차로그인";
 			this.button_login.UseVisualStyleBackColor = true;
 			this.button_login.UseWaitCursor = true;
-			// 
-			// button_logout
-			// 
-			this.button_logout.Location = new System.Drawing.Point(190, 97);
-			this.button_logout.Name = "button_logout";
-			this.button_logout.Size = new System.Drawing.Size(63, 54);
-			this.button_logout.TabIndex = 5;
-			this.button_logout.Text = "로그아웃";
-			this.button_logout.UseVisualStyleBackColor = true;
-			this.button_logout.UseWaitCursor = true;
 			// 
 			// button_codestates
 			// 
@@ -232,7 +225,7 @@ namespace OneHotClass
 			// 
 			// button_2ndLogin
 			// 
-			this.button_2ndLogin.Location = new System.Drawing.Point(109, 97);
+			this.button_2ndLogin.Location = new System.Drawing.Point(177, 97);
 			this.button_2ndLogin.Name = "button_2ndLogin";
 			this.button_2ndLogin.Size = new System.Drawing.Size(75, 54);
 			this.button_2ndLogin.TabIndex = 21;
@@ -240,11 +233,53 @@ namespace OneHotClass
 			this.button_2ndLogin.UseVisualStyleBackColor = true;
 			this.button_2ndLogin.UseWaitCursor = true;
 			// 
+			// checkBox_chainLogin
+			// 
+			this.checkBox_chainLogin.AutoSize = true;
+			this.checkBox_chainLogin.Location = new System.Drawing.Point(28, 157);
+			this.checkBox_chainLogin.Name = "checkBox_chainLogin";
+			this.checkBox_chainLogin.Size = new System.Drawing.Size(84, 16);
+			this.checkBox_chainLogin.TabIndex = 22;
+			this.checkBox_chainLogin.Text = "연속로그인";
+			this.checkBox_chainLogin.UseVisualStyleBackColor = true;
+			// 
+			// button_preLoginKakao
+			// 
+			this.button_preLoginKakao.Location = new System.Drawing.Point(109, 97);
+			this.button_preLoginKakao.Name = "button_preLoginKakao";
+			this.button_preLoginKakao.Size = new System.Drawing.Size(62, 23);
+			this.button_preLoginKakao.TabIndex = 23;
+			this.button_preLoginKakao.Text = "카카오";
+			this.button_preLoginKakao.UseVisualStyleBackColor = true;
+			// 
+			// button_preLoginGoogle
+			// 
+			this.button_preLoginGoogle.Location = new System.Drawing.Point(109, 128);
+			this.button_preLoginGoogle.Name = "button_preLoginGoogle";
+			this.button_preLoginGoogle.Size = new System.Drawing.Size(62, 23);
+			this.button_preLoginGoogle.TabIndex = 24;
+			this.button_preLoginGoogle.Text = "구글";
+			this.button_preLoginGoogle.UseVisualStyleBackColor = true;
+			// 
+			// button_logout
+			// 
+			this.button_logout.Location = new System.Drawing.Point(258, 97);
+			this.button_logout.Name = "button_logout";
+			this.button_logout.Size = new System.Drawing.Size(75, 54);
+			this.button_logout.TabIndex = 25;
+			this.button_logout.Text = "로그아웃";
+			this.button_logout.UseVisualStyleBackColor = true;
+			this.button_logout.UseWaitCursor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.button_logout);
+			this.Controls.Add(this.button_preLoginGoogle);
+			this.Controls.Add(this.button_preLoginKakao);
+			this.Controls.Add(this.checkBox_chainLogin);
 			this.Controls.Add(this.button_2ndLogin);
 			this.Controls.Add(this.button_zoomLink);
 			this.Controls.Add(this.label_python);
@@ -258,7 +293,6 @@ namespace OneHotClass
 			this.Controls.Add(this.button_getSchedule);
 			this.Controls.Add(this.dataGridView_timeTable);
 			this.Controls.Add(this.button_codestates);
-			this.Controls.Add(this.button_logout);
 			this.Controls.Add(this.button_login);
 			this.Controls.Add(this.textBox_password);
 			this.Controls.Add(this.textBox_email);
@@ -279,7 +313,6 @@ namespace OneHotClass
 		internal System.Windows.Forms.Button button_login;
 		internal System.Windows.Forms.TextBox textBox_email;
 		internal System.Windows.Forms.TextBox textBox_password;
-		internal System.Windows.Forms.Button button_logout;
 		internal System.Windows.Forms.Button button_codestates;
 		internal System.Windows.Forms.DataGridView dataGridView_timeTable;
 		internal System.Windows.Forms.Button button_getSchedule;
@@ -295,6 +328,10 @@ namespace OneHotClass
 		private System.Windows.Forms.DataGridViewTextBoxColumn 일정내용;
 		internal System.Windows.Forms.Button button_zoomLink;
 		internal System.Windows.Forms.Button button_2ndLogin;
+		internal System.Windows.Forms.CheckBox checkBox_chainLogin;
+		internal System.Windows.Forms.Button button_preLoginKakao;
+		internal System.Windows.Forms.Button button_preLoginGoogle;
+		internal System.Windows.Forms.Button button_logout;
 	}
 }
 
