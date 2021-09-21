@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Media;
 
 namespace OneHotClass
 {
@@ -83,6 +84,22 @@ namespace OneHotClass
 			}
 
 			OpenCodeStates(3, linkInEmail);
+		}
+
+		//사용자에게 토스트 알람의을 띄워준다.
+		internal void AlamTost()
+		{
+			string msg = DateTime.Now.ToString();
+
+			Form_Alert frm = new Form_Alert();
+			frm.ShowAlert(msg);
+		}
+
+		internal void AlamSound()
+		{
+			SoundPlayer sp = new SoundPlayer();
+			sp.SoundLocation = "ping_alert.wav";
+			sp.PlaySync();
 		}
 
 

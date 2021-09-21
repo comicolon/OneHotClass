@@ -8,7 +8,7 @@ namespace OneHotClass
 {
 	public class Config : InstanceManager
 	{
-		public static string VERSION = "0.1.36";     // 버전
+		public static string VERSION = "0.1.78";     // 버전
 
 		//계정
 		public static string LOGIN_EMAIL = "";
@@ -24,7 +24,7 @@ namespace OneHotClass
 		public static string ALAM_WORD4 = "";
 		public static List<Dictionary<string, string>> SCHEDULE_LIST = new List<Dictionary<string, string>>();	// 일정 리스트 리스트
 		public static List<string> ALAM_TIME_LIST = new List<string>(); // 알람 타임 리스트
-		public static int ALAM_BEFORE_MIN = 5;
+		public static int ALAM_BEFORE_SECOND = 300;
 		
 		public static bool IS_CHAIN_LOGIN = false;						// 연속 로그인을 할지 여부
 

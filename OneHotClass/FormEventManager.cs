@@ -24,6 +24,9 @@ namespace OneHotClass
 			mainForm.button_saveSetting.Click += Button_Click;
 
 			mainForm.checkBox_chainLogin.CheckedChanged += Checkbox_Check;
+
+			//테스트
+			mainForm.button_alamTest.Click += Button_Click;
 		}
 
 		public void Checkbox_Check(object sender, EventArgs e)
@@ -85,6 +88,13 @@ namespace OneHotClass
 			if (sender.Equals(mainForm.button_saveSetting))
 			{
 				functions.SaveSetting();
+			}
+
+			//테스트
+			if (sender.Equals(mainForm.button_alamTest))
+			{
+				functions.AlamTost();
+				functions.AlamSound();
 			}
 		}
 	}

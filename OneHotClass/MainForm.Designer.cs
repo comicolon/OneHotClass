@@ -58,6 +58,7 @@ namespace OneHotClass
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.button_applyAlam = new System.Windows.Forms.Button();
 			this.button_saveSetting = new System.Windows.Forms.Button();
+			this.button_alamTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -302,11 +303,21 @@ namespace OneHotClass
 			this.button_saveSetting.Text = "설정저장";
 			this.button_saveSetting.UseVisualStyleBackColor = true;
 			// 
+			// button_alamTest
+			// 
+			this.button_alamTest.Location = new System.Drawing.Point(688, 312);
+			this.button_alamTest.Name = "button_alamTest";
+			this.button_alamTest.Size = new System.Drawing.Size(75, 23);
+			this.button_alamTest.TabIndex = 28;
+			this.button_alamTest.Text = "알람테스트";
+			this.button_alamTest.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.button_alamTest);
 			this.Controls.Add(this.button_saveSetting);
 			this.Controls.Add(this.button_applyAlam);
 			this.Controls.Add(this.button_logout);
@@ -370,6 +381,7 @@ namespace OneHotClass
 		internal System.Windows.Forms.NotifyIcon notifyIcon1;
 		internal System.Windows.Forms.Button button_applyAlam;
 		internal System.Windows.Forms.Button button_saveSetting;
+		internal System.Windows.Forms.Button button_alamTest;
 	}
 }
 
