@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace OneHotClass
 {
@@ -90,6 +92,7 @@ namespace OneHotClass
 			return Encoding.UTF8.GetString(Array.ConvertAll(Regex.Unescape(data).ToCharArray(), c => (byte)c));
 		}
 
+		
 		internal void PreLogin()
 		{
 			if (Config.PRE_LOGIN_MAIL_SERVER == 1)
@@ -132,6 +135,11 @@ namespace OneHotClass
 
 		internal void GetSchedule()
 		{
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord1.Text);
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord2.Text);
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord3.Text);
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord4.Text);
+
 			GoogleCalenda.getSchedule();
 		}
 
@@ -151,6 +159,85 @@ namespace OneHotClass
 		{
 			System.Diagnostics.Process.Start("https://urclass.codestates.com");
 
+		}
+
+		internal void SaveSetting()
+		{
+			
+		}
+
+		// 알람을 세팅해준다.
+		internal void SetAlam()
+		{
+
+			//스케줄 리스트가 비어있지 않다면
+			if (Config.SCHEDULE_LIST.Count > 0)
+			{
+				initProgram.SetAlamWordList();
+				Config.ALAM_TIME_LIST.Clear();
+				SetGridColorReset();
+
+				//스케줄 리스트 중 하나씩
+				for (int i = 0; i < Config.SCHEDULE_LIST.Count; i++)
+				{
+					// 딕셔너리 개체에 접근
+					foreach (var item in Config.SCHEDULE_LIST[i])
+					{
+						string time = item.Key;
+						string toDo = item.Value;
+
+						for (int j = 0; j < Config.ALAM_WORD_LIST.Count; j++)
+						{
+							if (Config.ALAM_WORD_LIST[j] != "" && toDo.Contains(Config.ALAM_WORD_LIST[j]))
+							{
+								//시간 데이터가 있으면 리스트에 넣어준다
+								if (time.Contains("오전") || time.Contains("오후"))
+								{
+									Config.ALAM_TIME_LIST.Add(time);
+									SetGridColor(time);
+									break;  
+								}
+							}
+						}
+					}
+				}
+			}
+
+			else if (Config.SCHEDULE_LIST.Count == 0)
+			{
+				MessageBox.Show("일정을 먼저 불러오세요");
+			}
+
+			//for (int i = 0; i < Config.ALAM_TIME_LIST.Count; i++)
+			//{
+			//	Console.WriteLine(Config.ALAM_TIME_LIST[i]);
+			//}
+		}
+
+		// 그리드 로우 색 초기화
+		void SetGridColorReset()
+		{
+			var grid = mainForm.dataGridView_timeTable;
+
+			for (int i = 0; i < grid.Rows.Count; i++)
+			{
+				grid.Rows[i].DefaultCellStyle.BackColor = Color.White;
+			}
+		}
+
+
+		//알람 설정된 그리드 색상 변경
+		void SetGridColor(string time)
+		{
+			var grid = mainForm.dataGridView_timeTable;
+			
+			for (int i = 0; i < grid.Rows.Count; i++)
+			{
+				if (grid.Rows[i].Cells[0].Value.ToString() == time)
+				{
+					grid.Rows[i].DefaultCellStyle.BackColor = Color.Aqua;
+				}
+			}
 		}
 	}
 }

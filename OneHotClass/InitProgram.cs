@@ -40,7 +40,7 @@ namespace OneHotClass
 			Config.ALAM_WORD_LIST.Add(Config.ALAM_WORD3);
 			Config.ALAM_WORD_LIST.Add(Config.ALAM_WORD4);
 
-			if(Config.ALAM_WORD_LIST.Count() > 0)
+			if (Config.ALAM_WORD_LIST.Count() > 0)
 			{
 				mainForm.textBox_searchWord1.Text = Config.ALAM_WORD_LIST[0];
 				mainForm.textBox_searchWord2.Text = Config.ALAM_WORD_LIST[1];
@@ -51,9 +51,26 @@ namespace OneHotClass
 			//파이썬 경로 세팅
 			mainForm.textBox_pythonPath.Text = Config.PYTHON_PATH; 
 
-
 		}
 
+		// 알람 단어 리스트를 세팅해준다.
+		internal void SetAlamWordList()
+		{
 
+			//Console.WriteLine(Config.ALAM_WORD_LIST.Count);
+			Config.ALAM_WORD_LIST.Clear();
+			//Console.WriteLine(Config.ALAM_WORD_LIST.Count);
+
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord1.Text.ToString());
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord2.Text.ToString());
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord3.Text.ToString());
+			Config.ALAM_WORD_LIST.Add(mainForm.textBox_searchWord4.Text.ToString());
+
+			//for (int i = 0; i < Config.ALAM_WORD_LIST.Count; i++)
+			//{
+			//	Console.WriteLine(Config.ALAM_WORD_LIST[i]);
+			//	Console.WriteLine("----------------");
+			//}
+		}
 	}
 }

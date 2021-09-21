@@ -20,6 +20,8 @@ namespace OneHotClass
 			mainForm.button_logout.Click += Button_Click;
 			mainForm.button_getSchedule.Click += Button_Click;
 			mainForm.button_zoomLink.Click += Button_Click;
+			mainForm.button_applyAlam.Click += Button_Click;
+			mainForm.button_saveSetting.Click += Button_Click;
 
 			mainForm.checkBox_chainLogin.CheckedChanged += Checkbox_Check;
 		}
@@ -72,6 +74,17 @@ namespace OneHotClass
 			if (sender.Equals(mainForm.button_preLoginGoogle))
 			{
 				Config.PRE_LOGIN_MAIL_SERVER = 2;
+			}
+
+			if (sender.Equals(mainForm.button_applyAlam))
+			{
+				functions.SetAlam();
+			}
+
+			//설정저장
+			if (sender.Equals(mainForm.button_saveSetting))
+			{
+				functions.SaveSetting();
 			}
 		}
 	}

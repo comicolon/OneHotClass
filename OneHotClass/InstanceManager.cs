@@ -15,5 +15,6 @@ namespace OneHotClass
 
 		public static InitProgram initProgram = new InitProgram();
 		public static FormEventManager formEventManager = new FormEventManager(); //폼 이벤트
+		public static TimeCheck timeCheck = new TimeCheck();
 	}
 }

@@ -29,6 +29,8 @@ namespace OneHotClass
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.label_email = new System.Windows.Forms.Label();
 			this.label_password = new System.Windows.Forms.Label();
 			this.textBox_email = new System.Windows.Forms.TextBox();
@@ -53,6 +55,9 @@ namespace OneHotClass
 			this.button_preLoginKakao = new System.Windows.Forms.Button();
 			this.button_preLoginGoogle = new System.Windows.Forms.Button();
 			this.button_logout = new System.Windows.Forms.Button();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+			this.button_applyAlam = new System.Windows.Forms.Button();
+			this.button_saveSetting = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -115,6 +120,7 @@ namespace OneHotClass
 			// 
 			// dataGridView_timeTable
 			// 
+			this.dataGridView_timeTable.AllowUserToAddRows = false;
 			this.dataGridView_timeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_timeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.time,
@@ -164,7 +170,7 @@ namespace OneHotClass
 			// label_alamSearchWord
 			// 
 			this.label_alamSearchWord.AutoSize = true;
-			this.label_alamSearchWord.Location = new System.Drawing.Point(580, 243);
+			this.label_alamSearchWord.Location = new System.Drawing.Point(580, 240);
 			this.label_alamSearchWord.Name = "label_alamSearchWord";
 			this.label_alamSearchWord.Size = new System.Drawing.Size(69, 12);
 			this.label_alamSearchWord.TabIndex = 13;
@@ -271,11 +277,38 @@ namespace OneHotClass
 			this.button_logout.UseVisualStyleBackColor = true;
 			this.button_logout.UseWaitCursor = true;
 			// 
+			// notifyIcon1
+			// 
+			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+			this.notifyIcon1.Text = "notifyIcon1";
+			this.notifyIcon1.Visible = true;
+			this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+			// 
+			// button_applyAlam
+			// 
+			this.button_applyAlam.Location = new System.Drawing.Point(582, 312);
+			this.button_applyAlam.Name = "button_applyAlam";
+			this.button_applyAlam.Size = new System.Drawing.Size(75, 23);
+			this.button_applyAlam.TabIndex = 26;
+			this.button_applyAlam.Text = "알람적용";
+			this.button_applyAlam.UseVisualStyleBackColor = true;
+			// 
+			// button_saveSetting
+			// 
+			this.button_saveSetting.Location = new System.Drawing.Point(713, 415);
+			this.button_saveSetting.Name = "button_saveSetting";
+			this.button_saveSetting.Size = new System.Drawing.Size(75, 23);
+			this.button_saveSetting.TabIndex = 27;
+			this.button_saveSetting.Text = "설정저장";
+			this.button_saveSetting.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.button_saveSetting);
+			this.Controls.Add(this.button_applyAlam);
 			this.Controls.Add(this.button_logout);
 			this.Controls.Add(this.button_preLoginGoogle);
 			this.Controls.Add(this.button_preLoginKakao);
@@ -298,8 +331,10 @@ namespace OneHotClass
 			this.Controls.Add(this.textBox_email);
 			this.Controls.Add(this.label_password);
 			this.Controls.Add(this.label_email);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "OneHotClass";
+			this.Resize += new System.EventHandler(this.MainForm_Resize);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_timeTable)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -332,6 +367,9 @@ namespace OneHotClass
 		internal System.Windows.Forms.Button button_preLoginKakao;
 		internal System.Windows.Forms.Button button_preLoginGoogle;
 		internal System.Windows.Forms.Button button_logout;
+		internal System.Windows.Forms.NotifyIcon notifyIcon1;
+		internal System.Windows.Forms.Button button_applyAlam;
+		internal System.Windows.Forms.Button button_saveSetting;
 	}
 }
 

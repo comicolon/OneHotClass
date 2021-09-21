@@ -108,30 +108,30 @@ namespace OneHotClass
                     entry = item;
 				}
 
-                //Console.WriteLine("Id: " + item.Id);
-                //Console.WriteLine("ETag: " + item.ETag);
-                //Console.WriteLine("AccessRole: " + item.AccessRole);
-                //Console.WriteLine("ConferenceProperties: " + item.ConferenceProperties);
-                //Console.WriteLine("Description: " + item.Description);
-                //Console.WriteLine("SummaryOverride: " + item.SummaryOverride);
-                //Console.WriteLine("Summary: " + item.Summary);
-                //Console.WriteLine("Location:" + item.Location);
-                //Console.WriteLine("TimeZone:" + item.TimeZone);
-                //Console.WriteLine("================================");
-            }
+				//Console.WriteLine("Id: " + item.Id);
+				//Console.WriteLine("ETag: " + item.ETag);
+				//Console.WriteLine("AccessRole: " + item.AccessRole);
+				//Console.WriteLine("ConferenceProperties: " + item.ConferenceProperties);
+				//Console.WriteLine("Description: " + item.Description);
+				//Console.WriteLine("SummaryOverride: " + item.SummaryOverride);
+				//Console.WriteLine("Summary: " + item.Summary);
+				//Console.WriteLine("Location:" + item.Location);
+				//Console.WriteLine("TimeZone:" + item.TimeZone);
+				//Console.WriteLine("================================");
+			}
         }
 
         // Displays the calendar's events
         private static void DisplayFirstCalendarEvents(CalendarListEntry list)
         {
-            Console.WriteLine(Environment.NewLine + "Maximum 5 first events from {0}:", list.Summary);
+            //Console.WriteLine(Environment.NewLine + "Maximum 5 first events from {0}:", list.Summary);
 			EventsResource.ListRequest request = service.Events.List(list.Id);
 
             //Set MaxResults and TimeMin with sample values
             request.TimeMin = DateTime.Now;
             request.ShowDeleted = false;
             request.SingleEvents = true;
-            request.MaxResults = 10;
+            request.MaxResults = 12;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
             // Fetch the list of events
@@ -157,7 +157,7 @@ namespace OneHotClass
                     }
                     //Console.WriteLine("{0} ({1})", eventItem.Summary, when);
 
-                    Console.WriteLine(eventItem.Summary);
+                    //Console.WriteLine(eventItem.Summary);
                     //Console.WriteLine(eventItem.Id);
                     //Console.WriteLine(eventItem.Status);
                     //Console.WriteLine(eventItem.Attachments);
@@ -166,15 +166,15 @@ namespace OneHotClass
                     //Console.WriteLine(eventItem.AttendeesOmitted);
                     //Console.WriteLine(eventItem.ConferenceData);
                     //Console.WriteLine(eventItem.Created);
-                    Console.WriteLine(eventItem.Description); // 줌링크 링크용
+                    //Console.WriteLine(eventItem.Description); // 줌링크 링크용
                     //Console.WriteLine(eventItem.ExtendedProperties);
                     //Console.WriteLine(eventItem.HangoutLink);
                     //Console.WriteLine(eventItem.HtmlLink);
                     //Console.WriteLine(eventItem.ICalUID);
                     //Console.WriteLine("===============================");
 
-                    
-                    if (eventItem.Description != null)
+                    // 줌링크 추출
+                    if (eventItem.Description != null && eventItem.Summary.ToString().Contains("Zoom"))
 					{
                         string itemDesc = eventItem.Description.ToString();
                         string index = "https://";
@@ -196,11 +196,16 @@ namespace OneHotClass
                                 zoomFlag = true;
 							}
 						}
-                        Console.WriteLine("zoomLink = " + zoomLink);
+                        //Console.WriteLine("zoomLink = " + zoomLink);
 					}
 
                     //화면에 나타냄
                     mainForm.dataGridView_timeTable.Rows.Add(when, eventItem.Summary);
+
+                    //config 리스트에 추가
+                    Dictionary<string, string> toDo = new Dictionary<string, string>();
+                    toDo.Add(when, eventItem.Summary);
+                    Config.SCHEDULE_LIST.Add(toDo);
                 }
             }
             else
